@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-import App from './App.js';
+
 import { Provider } from 'react-redux';
+
+import App from './App.js';
+
 import store from './store/store.js';
-import * as serviceWorker from './serviceWorker';
+
 
 function Main() {
   return (
@@ -14,16 +16,6 @@ function Main() {
   )
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Main />, rootElement);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
-
-export default Main;
