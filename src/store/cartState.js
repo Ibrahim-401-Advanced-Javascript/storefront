@@ -7,29 +7,41 @@ let initialState = {
   totalQuantity: 0,
 }
 
-// actions: the only way to modify state
-// functions which return an object with a particular set of key:value pairs
-// { type: 'string', payload: any }
-
 export default ( state = initialState, action) => {
   let { type, payload } = action;
 
   switch(type) {
     case 'add':
       let totalQuantity = state.totalQuantity + 1;
-      return totalQuantity;
+      let products = state.products.map(product => {
+        if (product.product === payload) {
+          return { product: product.product, quantity: product.quantity + 1 }
+        }
+        return product;
+      })
+      return { totalQuantity, products };
+
     case 'remove':
       totalQuantity = state.totalQuantity - 1;
-      return totalQuantity;
+      products = state.products.map(product => {
+        if (product.product === payload) {
+          return { product: product.product, quantity: product.quantity - 1 }
+        }
+        return product;
+      })
+      return { totalQuantity, products };
+
     case 'reset':
-      totalQuantity = 0;
-      return totalQuantity;
+      return initialState;
+
     default:
       return state;
   }
-
-
 }
+
+// actions: the only way to modify state
+// functions which return an object with a particular set of key:value pairs
+// { type: 'string', payload: any }
 
 export const add = (product) => {
   return {
@@ -45,9 +57,8 @@ export const remove = (product) => {
   }
 }
 
-export const reset = (cart) => {
+export const reset = () => {
   return {
     type: 'reset',
-    payload: cart,
   }
 }
