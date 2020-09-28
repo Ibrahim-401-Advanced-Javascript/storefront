@@ -7,7 +7,7 @@ const CartSub = (props) => {
     <section className="cartSubTotals">
       <ul>
         {props.products.map(product => 
-          <li onClick={() => props.add(product.product)} key={product.product}>{product.product}: {product.quantity}</li> 
+          <li onClick={() => props.add(product.name)} key={product.name}>{product.name}: {product.quantity}</li> 
           )}
       </ul>
       <button onClick={props.reset}>Empty Cart</button>

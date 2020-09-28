@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const CartTotal = (props) => {
   return(
     <section className="cartTotal">
-      {props.cartTotal} || ???
+      {props.cartTotal}
     </section>
   )
 }

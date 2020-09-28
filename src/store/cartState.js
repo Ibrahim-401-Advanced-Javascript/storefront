@@ -1,8 +1,8 @@
 let initialState = {
   products: [
-    { product: 'Prod1', quantity: 0 },
-    { product: 'Prod2', quantity: 0 },
-    { product: 'Prod3', quantity: 0 },
+    { name: 'Prod1', quantity: 0 },
+    { name: 'Prod2', quantity: 0 },
+    { name: 'Prod3', quantity: 0 },
   ],
   totalQuantity: 0,
 }
@@ -11,27 +11,27 @@ export default ( state = initialState, action) => {
   let { type, payload } = action;
 
   switch(type) {
-    case 'add':
+    case 'ADD':
       let totalQuantity = state.totalQuantity + 1;
       let products = state.products.map(product => {
-        if (product.product === payload) {
-          return { product: product.product, quantity: product.quantity + 1 }
+        if (product.name === payload) {
+          return { product: product.name, quantity: product.quantity + 1 }
         }
         return product;
       })
       return { totalQuantity, products };
 
-    case 'remove':
+    case 'REMOVE':
       totalQuantity = state.totalQuantity - 1;
       products = state.products.map(product => {
-        if (product.product === payload) {
-          return { product: product.product, quantity: product.quantity - 1 }
+        if (product.name === payload) {
+          return { product: product.name, quantity: product.quantity - 1 }
         }
         return product;
       })
       return { totalQuantity, products };
 
-    case 'reset':
+    case 'RESET':
       return initialState;
 
     default:
@@ -45,20 +45,20 @@ export default ( state = initialState, action) => {
 
 export const add = (product) => {
   return {
-    type: 'add',
+    type: 'ADD',
     payload: product,
   }
 }
 
 export const remove = (product) => {
   return {
-    type: 'remove',
+    type: 'REMOVE',
     payload: product,
   }
 }
 
 export const reset = () => {
   return {
-    type: 'reset',
+    type: 'RESET',
   }
 }
