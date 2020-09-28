@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import './index.css';
+import App from './App.js';
+import { Provider } from 'react-redux';
+import store from './store/store.js';
 import * as serviceWorker from './serviceWorker';
+
+function Main() {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,3 +25,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+export default Main;
