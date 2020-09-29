@@ -50,10 +50,11 @@ function Categories() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    
   };
-
+  
   return (
-
+    
     <>
       <Paper className={classes.root}>
       <Tabs
@@ -62,11 +63,10 @@ function Categories() {
         indicatorColor="primary"
         textColor="primary"
         centered
-      >
-        <Tab label="Fruits" />
-        <Tab label="Vegetables" />
-        <Tab label="Herbs" />
-        <Tab label="Spices" />
+        >
+        {['fruits', 'vegetables', 'herbs', 'spices'].map((category) => 
+        <Tab key={category}label={category} />
+        )}
       </Tabs>
     </Paper>
 
