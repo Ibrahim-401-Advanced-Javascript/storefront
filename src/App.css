@@ -1,38 +1,63 @@
 .App {
+  background-color: #F7F7F7;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Header {
+  color: #141115;
+  background-color: #CFD4C5;
+  padding: 1em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Storefront {
+  color: #141115;
+  background-color: #F7F7F7;
+  flex: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Categories {
+  color: #141115;
+  background-color: #CFD4C5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#current-category {
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+#navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #CFD4C5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#nav-item {
+  float: left;
+  color: #F7F7F7;
+  padding: 0.25em;
+}
+
+.Cart {
+  color: #141115;
+  border: 2px solid #C1FBA4;
+  float: right;
+  width: 49%;
+}
+
+.Products {
+  color: #141115;
+  border: 2px solid #FFD6E0;
+  float: left;
+  width: 49%;
+}
+
+.Footer {
+  background-color: #CFD4C5;
+  color: #141115;
+  text-align: center;
 }

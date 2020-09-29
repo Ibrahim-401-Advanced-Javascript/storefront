@@ -2,7 +2,11 @@ import React from 'react'
 
 function Header() {
   return (
-    <h1>Store Name</h1>
+    <section className="Header">
+      <header>
+        <h2>Store</h2>  
+      </header>
+    </section>
   )
 }
 
