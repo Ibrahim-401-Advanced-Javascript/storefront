@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { navigate } from '../../store/categoryState.js';
 
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+// import Container from '@material-ui/core/Container';
 
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Categories() {
+function Categories(props) {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -57,32 +59,42 @@ function Categories() {
     
     <>
       <Paper className={classes.root}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
         >
-        {['fruits', 'vegetables', 'herbs', 'spices'].map((category) => 
-        <Tab key={category}label={category} />
+        {props.categories.map((category) => 
+          <Tab key={category.name}label={category.name} onClick={() => props.navigate(category.name)}/>
         )}
-      </Tabs>
-    </Paper>
+        </Tabs>
+      </Paper>
 
-    <div className={classes.heroContent}>
-       <Container maxWidth="sm">
-         <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
-           Category
-         </Typography>
-         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-           Category Description
-         </Typography>
+    {/* <div className={classes.heroContent}>
+      <Container maxWidth="sm">
+        <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
+          activeCategory: {activeCategory}
+        </Typography>
+        <Typography variant="h5" align="center" color="textSecondary" paragraph>
+          category description: {props.categories.description}
+        </Typography>
     
-       </Container>
-    </div>
+      </Container>
+    </div> */}
     </>
   )
 }
 
-export default Categories
+const mapStateToProps = (state) => {
+  return {
+    categories: state.categorynav.categories
+  }
+}
+
+const mapDispatchToProps = {
+  navigate,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories)
