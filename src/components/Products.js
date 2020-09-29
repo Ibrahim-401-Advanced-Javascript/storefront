@@ -1,12 +1,28 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { add } from '../store/cartState.js';
 
-function Products() {
-  
+const Products = (props) => {
   return (
-    <>
-    <h5>vvv [PRODUCT CARDS] vvv</h5>
-    </>
+    <section className="Products">
+      <ul>
+        {props.products.map(product => 
+          <li onClick={() => props.add(product.name)} key={product.name}>{product.name}
+          <button onClick={props.add}>Add to Cart</button></li> 
+          )}
+      </ul>
+    </section>
   )
 }
 
-export default Products
+const mapStateToProps = (state) => {
+  return {
+    products: state.counter.products
+  }
+}
+
+const mapDispatchToProps = {
+  add,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
