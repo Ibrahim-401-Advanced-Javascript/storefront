@@ -1,21 +1,31 @@
+/* eslint-disable no-case-declarations */
+
 let initialState = {
   products: [
-    { name: 'Prod1', quantity: 0 },
-    { name: 'Prod2', quantity: 0 },
-    { name: 'Prod3', quantity: 0 },
+    { name: 'Bananas', quantity: 0, description: 'potassium ++', image_url: 'https://images.unsplash.com/photo-1464918877125-24db0dc393cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=2767&q=80', image_title: 'bananas' },
+
+    { name: 'Pomegranates', quantity: 0, description: 'happiness ++', image_url: 'https://images.unsplash.com/photo-1553499944-5472133459bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3025&q=80', image_title: 'pomegranates' },
+
+    { name: 'Pineapples', quantity: 0, description: 'vitamin c ++', image_url: 'https://images.unsplash.com/photo-1589427290283-4781bd6f31ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1676&q=80', image_title: 'pineapples' },
+
   ],
   totalQuantity: 0,
 }
 
 export default ( state = initialState, action) => {
+
   let { type, payload } = action;
+  let totalQuantity = 0;
+  let products = [];
 
   switch(type) {
     case 'ADD':
-      let totalQuantity = state.totalQuantity + 1;
-      let products = state.products.map(product => {
+      totalQuantity = state.totalQuantity + 1;
+
+      products = state.products.map(product => {
+
         if (product.name === payload) {
-          return { product: product.name, quantity: product.quantity + 1 }
+          return { name: product.name, quantity: product.quantity + 1, description: product.description, image_url: product.image_url, image_title: product.image_title }
         }
         return product;
       })
@@ -23,9 +33,11 @@ export default ( state = initialState, action) => {
 
     case 'REMOVE':
       totalQuantity = state.totalQuantity - 1;
+
       products = state.products.map(product => {
+
         if (product.name === payload) {
-          return { product: product.name, quantity: product.quantity - 1 }
+          return { name: product.name, quantity: product.quantity - 1, description: product.description, image_url: product.image_url, image_title: product.image_title }
         }
         return product;
       })
@@ -43,17 +55,17 @@ export default ( state = initialState, action) => {
 // functions which return an object with a particular set of key:value pairs
 // { type: 'string', payload: any }
 
-export const add = (product) => {
+export const add = (name) => {
   return {
     type: 'ADD',
-    payload: product,
+    payload: name,
   }
 }
 
-export const remove = (product) => {
+export const remove = (name) => {
   return {
     type: 'REMOVE',
-    payload: product,
+    payload: name,
   }
 }
 
