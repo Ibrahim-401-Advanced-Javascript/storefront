@@ -14,12 +14,12 @@ let initialState = {
   activeCategory: 'Fruits',
 }
 
-export default ( state = initialState, action) => {
+export default ( state = initialState, action ) => {
 
   
   let { type, payload } = action;
 
-  console.log('reducer:', type, payload);
+  // console.log('reducer:', type, payload);
 
   switch(type) {
     case 'NAVIGATE':

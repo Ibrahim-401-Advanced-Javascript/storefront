@@ -1,7 +1,6 @@
 import React from 'react';
 import Categories from './Categories.js';
 import ActiveCategory from './activeCategory.js';
-import Cart from './Cart.js';
 import Products from './Products.js';
 
 function Storefront() {
@@ -9,7 +8,6 @@ function Storefront() {
     <section className="Storefront">
       <Categories />
       <ActiveCategory />
-      <Cart />
       <Products />
     </section>
   )

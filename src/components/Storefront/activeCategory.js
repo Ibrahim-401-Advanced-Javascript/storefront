@@ -55,9 +55,9 @@ function ActiveCategory({activeCategory}) {
           <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
             {activeCategory}
           </Typography>
-          <Typography variant="h5" align="center" color="textSecondary" paragraph>
-            {activeCategory}
-          </Typography>
+          {/* <Typography variant="h5" align="center" color="textSecondary" paragraph>
+            description
+          </Typography> */}
   
         </Container>
       </div>

@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { navigate } from '../../store/categoryState.js';
 
-// import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-// import Container from '@material-ui/core/Container';
 
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -71,18 +69,6 @@ function Categories(props) {
         )}
         </Tabs>
       </Paper>
-
-    {/* <div className={classes.heroContent}>
-      <Container maxWidth="sm">
-        <Typography component="h3" variant="h4" align="center" color="textPrimary" gutterBottom>
-          activeCategory: {activeCategory}
-        </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          category description: {props.categories.description}
-        </Typography>
-    
-      </Container>
-    </div> */}
     </>
   )
 }

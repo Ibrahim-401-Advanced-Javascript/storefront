@@ -10,12 +10,21 @@
   color: #141115;
   background-color: #CFD4C5;
   padding: 1em;
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 #store-heading {
-  margin: 1em;
+  width: 75%;
+  float: left;
+  font-weight: 400;
 }
+
+.Cart {
+  width: 25%;
+  float: right;
+}
+
 
 .Storefront {
   color: #141115;
